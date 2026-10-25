@@ -122,83 +122,6 @@ p {
   color: var(--cafe);
 }
 
-/* SOBRE DE BIENVENIDA */
-
-.envelope-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background:
-    radial-gradient(ellipse at top, #ffffff 0%, transparent 65%),
-    var(--marfil);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  text-align: center;
-  transition: opacity .8s, visibility .8s;
-}
-
-.envelope-screen.opened {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.envelope-screen h2 {
-  margin-bottom: 0;
-}
-
-.envelope {
-  position: relative;
-  width: min(300px, 80vw);
-  height: 190px;
-  margin: 35px 0;
-  background: var(--champan);
-  border: 1px solid var(--taupe);
-  box-shadow: 0 15px 35px #49332620;
-  cursor: pointer;
-  appearance: none;
-}
-
-.envelope::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--arena);
-  clip-path: polygon(0 0, 100% 0, 50% 58%);
-  transform-origin: top;
-  transition: transform .6s;
-  z-index: 2;
-}
-
-.envelope::after {
-  content: "N";
-  position: absolute;
-  z-index: 3;
-  top: 72px;
-  left: calc(50% - 24px);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--marfil);
-  background: var(--cuero);
-  font-size: 1.5rem;
-}
-
-.envelope.open::before {
-  transform: rotateX(180deg);
-}
-
-.envelope-screen small {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: .7rem;
-}
-
 /* PORTADA */
 
 .hero {
@@ -497,7 +420,7 @@ footer {
   font-size: .85rem;
 }
 
-/* MÚSICA */
+/* BOTÓN DE MÚSICA */
 
 .music-button {
   position: fixed;
@@ -513,8 +436,6 @@ footer {
   cursor: pointer;
   box-shadow: 0 4px 14px #0002;
 }
-
-/* AJUSTES PARA CELULAR */
 
 @media (max-width: 600px) {
   section {
@@ -570,29 +491,16 @@ footer {
 
 <body>
 
-<!-- SOBRE DE ENTRADA -->
-<div class="envelope-screen" id="envelopeScreen">
-  <p class="eyebrow">Una invitación especial</p>
-  <h2>Mis XV años</h2>
-  <p class="script">Natali Gissel</p>
-
-  <button class="envelope" id="envelope"
-    aria-label="Abrir invitación"></button>
-
-  <small>Toca el sobre para abrir tu invitación</small>
-  <p class="script">Con cariño, Natali</p>
-</div>
-
-<!-- MÚSICA: el archivo debe llamarse music.mp3 -->
+<!-- MÚSICA: music.mp3 debe estar junto a index.html -->
 <audio id="backgroundMusic" preload="auto" loop>
   <source src="music.mp3" type="audio/mpeg">
   Tu navegador no puede reproducir este archivo de audio.
 </audio>
 
 <button class="music-button" id="musicToggle"
-  aria-label="Pausar música" aria-pressed="true">♫</button>
+  type="button" aria-label="Reproducir música" aria-pressed="false">♫</button>
 
-<!-- PORTADA: NATLI32 -->
+<!-- PORTADA -->
 <header class="hero">
   <div class="hero-content">
     <p class="eyebrow">Con la bendición de Dios y de mi familia</p>
@@ -709,7 +617,7 @@ footer {
   </div>
 </section>
 
-<!-- RECEPCIÓN: NATLI38 -->
+<!-- RECEPCIÓN -->
 <section>
   <p class="eyebrow">La celebración continúa</p>
   <h2>La recepción</h2>
@@ -736,7 +644,7 @@ footer {
   </div>
 </section>
 
-<!-- CÓDIGO DE VESTIMENTA: NATLI23 -->
+<!-- CÓDIGO DE VESTIMENTA -->
 <section class="dress-code">
   <p class="eyebrow">Indicaciones especiales</p>
   <h2>Elegante tipo jardín</h2>
@@ -765,7 +673,7 @@ footer {
   <p>Marfil · Arena · Café · Tonos tierra</p>
 </section>
 
-<!-- GALERÍA: NATLI1 A NATLI40, EXCEPTO 23, 32 Y 38 -->
+<!-- GALERÍA -->
 <section class="gallery">
   <p class="eyebrow">Recuerdos de Natali</p>
   <h2>Mi galería</h2>
@@ -895,27 +803,23 @@ footer {
 <script>
 /* =========================================
    MÚSICA
-   Comienza en el segundo 13 al abrir el sobre.
-   El archivo debe llamarse music.mp3 y estar
-   junto a index.html.
+   El audio se controla con el botón flotante.
+   Archivo music.mp3 junto a index.html.
 ========================================= */
 
 const MUSIC_START_SECONDS = 13;
-
-const envelope = document.getElementById("envelope");
-const envelopeScreen = document.getElementById("envelopeScreen");
 const music = document.getElementById("backgroundMusic");
 const musicToggle = document.getElementById("musicToggle");
 
-let invitationOpened = false;
 let musicStartedOnce = false;
 
 function updateMusicButton() {
   const playing = !music.paused;
+
   musicToggle.textContent = playing ? "♫" : "♪";
   musicToggle.setAttribute(
     "aria-label",
-    playing ? "Pausar música" : "Reanudar música"
+    playing ? "Pausar música" : "Reproducir música"
   );
   musicToggle.setAttribute("aria-pressed", String(playing));
 }
@@ -923,8 +827,6 @@ function updateMusicButton() {
 async function startMusic() {
   try {
     if (!musicStartedOnce) {
-      music.currentTime = MUSIC_START_SECONDS;
-    } else if (music.ended) {
       music.currentTime = MUSIC_START_SECONDS;
     }
 
@@ -940,23 +842,8 @@ async function startMusic() {
   }
 }
 
-envelope.addEventListener("click", async () => {
-  if (invitationOpened) return;
-
-  invitationOpened = true;
-  envelope.classList.add("open");
-
-  // La música intenta iniciar después del toque del invitado.
-  await startMusic();
-
-  setTimeout(() => {
-    envelopeScreen.classList.add("opened");
-  }, 450);
-});
-
 musicToggle.addEventListener("click", async () => {
   if (music.paused) {
-    // Al reanudar, continúa desde el punto donde se pausó.
     await startMusic();
   } else {
     music.pause();
@@ -967,15 +854,12 @@ musicToggle.addEventListener("click", async () => {
 music.addEventListener("play", updateMusicButton);
 music.addEventListener("pause", updateMusicButton);
 
-/* Detiene el audio cuando el visitante sale de la página. */
 window.addEventListener("pagehide", () => {
   music.pause();
 });
 
 /* =========================================
    CUENTA REGRESIVA
-   Fecha de la misa: 7 de noviembre de 2026,
-   a las 7:00 p. m., hora de Veracruz.
 ========================================= */
 
 const eventDate = new Date("2026-11-07T19:00:00-06:00").getTime();
@@ -1007,7 +891,7 @@ setInterval(updateCountdown, 1000);
 
 /* =========================================
    GALERÍA
-   Incluye NATLI1 a NATLI40, excepto 23, 32 y 38.
+   NATLI1 a NATLI40, excepto 23, 32 y 38.
 ========================================= */
 
 const excludedPhotos = [23, 32, 38];
@@ -1028,7 +912,9 @@ function showPhoto(index) {
   currentPhoto =
     (index + galleryPhotos.length) % galleryPhotos.length;
 
-  galleryImage.alt = `Fotografía ${currentPhoto + 1} de ${galleryPhotos.length} de Natali Gissel`;
+  galleryImage.alt =
+    `Fotografía ${currentPhoto + 1} de ${galleryPhotos.length} de Natali Gissel`;
+
   galleryImage.src = galleryPhotos[currentPhoto];
   galleryCounter.textContent =
     `${currentPhoto + 1} / ${galleryPhotos.length}`;
@@ -1047,7 +933,6 @@ galleryImage.addEventListener("error", () => {
     "No se encontró esta fotografía. Revisa su nombre y extensión dentro de la carpeta images.";
 });
 
-/* Deslizar la galería en pantallas táctiles. */
 let touchStartX = 0;
 
 galleryImage.addEventListener("touchstart", event => {
@@ -1068,9 +953,8 @@ showPhoto(0);
 /* =========================================
    CONFIRMACIÓN POR WHATSAPP
 
-   Sustituye el número de ejemplo por el número
-   real, incluyendo el código de país, sin +,
-   espacios ni guiones.
+   Cambia el número de ejemplo por el número
+   real con código de país, sin + ni espacios.
 ========================================= */
 
 const whatsappNumber = "5210000000000";
@@ -1085,6 +969,7 @@ if (/^\d{10,15}$/.test(whatsappNumber) &&
     whatsappNumber !== "5210000000000") {
   whatsappButton.href =
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   whatsappHelp.hidden = true;
 } else {
   whatsappButton.addEventListener("click", event => {
