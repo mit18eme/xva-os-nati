@@ -1,0 +1,805 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años | Natalia</title>
+
+<style>
+:root {
+  --marfil: #F8F2E8;
+  --champan: #E8D5B5;
+  --arena: #D6C2A5;
+  --taupe: #9B8570;
+  --cuero: #74543B;
+  --cafe: #493326;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--marfil);
+  color: var(--cafe);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+section {
+  padding: 75px 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 18px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.eyebrow {
+  color: var(--cuero);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: .75rem;
+  margin-bottom: 18px;
+}
+
+.script {
+  font-style: italic;
+  color: var(--cuero);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--cuero);
+  color: var(--marfil);
+  border: 1px solid var(--cuero);
+  padding: 12px 24px;
+  margin: 10px 5px;
+  transition: .25s;
+}
+
+.btn:hover {
+  background: var(--cafe);
+}
+
+.btn-outline {
+  color: var(--cafe);
+  background: transparent;
+  border-color: var(--cuero);
+}
+
+/* PORTADA */
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  color: white;
+  background:
+    linear-gradient(#24180d66, #24180d88),
+    url("images/NATLI32.jpg") center 35% / cover no-repeat;
+}
+
+.hero-content {
+  width: min(650px, 100%);
+  padding: 38px 20px;
+  border: 1px solid #E8D5B5B0;
+  background: #49332638;
+  backdrop-filter: blur(2px);
+}
+
+.hero .eyebrow,
+.hero .script {
+  color: var(--champan);
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  margin: 12px 0;
+}
+
+.hero-date {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: .9rem;
+  margin-top: 24px;
+}
+
+/* SOBRE DE BIENVENIDA */
+
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--marfil);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  transition: opacity .8s, visibility .8s;
+}
+
+.envelope-screen.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope {
+  position: relative;
+  width: min(300px, 80vw);
+  height: 190px;
+  margin: 35px 0;
+  background: var(--champan);
+  border: 1px solid var(--taupe);
+  box-shadow: 0 15px 35px #49332620;
+  cursor: pointer;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--arena);
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  transform-origin: top;
+  transition: transform .6s;
+  z-index: 2;
+}
+
+.envelope::after {
+  content: "N";
+  position: absolute;
+  z-index: 3;
+  top: 72px;
+  left: calc(50% - 24px);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--marfil);
+  background: var(--cuero);
+  font-size: 1.5rem;
+}
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+}
+
+.envelope-screen small {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* CONTADOR */
+
+.countdown {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(#24180d88, #24180d88),
+    url("images/NATLI32.jpg") center 45% / cover no-repeat;
+}
+
+.countdown h2,
+.countdown .eyebrow {
+  color: white;
+}
+
+.timer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.timer-item {
+  min-width: 75px;
+  padding: 12px;
+  border: 1px solid var(--champan);
+  background: #49332660;
+}
+
+.timer-item strong {
+  display: block;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.timer-item span {
+  font-size: .75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* FAMILIA */
+
+.family {
+  background: #EFE4D4;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+  max-width: 750px;
+  margin: 35px auto 0;
+}
+
+.family h3 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+/* RECEPCIÓN */
+
+.reception-photo {
+  width: 100%;
+  height: min(65vh, 550px);
+  object-fit: cover;
+  object-position: center 35%;
+  margin: 30px auto;
+}
+
+.location-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px 20px;
+  border: 1px solid var(--arena);
+}
+
+/* VESTIMENTA */
+
+.dress-code {
+  background: #EFE4D4;
+}
+
+.dress-photo {
+  width: min(420px, 100%);
+  height: 460px;
+  object-fit: cover;
+  object-position: center 35%;
+  margin: 30px auto;
+}
+
+.color-note {
+  max-width: 550px;
+  margin: 25px auto;
+  padding: 20px;
+  border: 1px solid var(--arena);
+}
+
+/* CARRUSEL */
+
+.gallery {
+  background: var(--marfil);
+}
+
+.carousel {
+  max-width: 850px;
+  margin: 35px auto 15px;
+  position: relative;
+}
+
+.carousel-frame {
+  overflow: hidden;
+  background: var(--champan);
+}
+
+.carousel-frame img {
+  width: 100%;
+  height: min(70vh, 650px);
+  object-fit: contain;
+  background: #e8d5b5;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.carousel-controls button {
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--cuero);
+  color: var(--cafe);
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+#galleryCounter {
+  font-size: .9rem;
+}
+
+/* ITINERARIO */
+
+.itinerary {
+  background: #EFE4D4;
+}
+
+.timeline {
+  max-width: 520px;
+  margin: 35px auto 0;
+  text-align: left;
+  border-left: 1px solid var(--cuero);
+  padding-left: 25px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 28px 10px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: var(--cuero);
+  border-radius: 50%;
+  left: -31px;
+  top: 9px;
+}
+
+.timeline-item h3 {
+  font-weight: normal;
+  font-size: 1.25rem;
+}
+
+/* CONFIRMACIÓN Y PIE */
+
+.rsvp {
+  background: var(--cafe);
+  color: var(--marfil);
+}
+
+.rsvp .eyebrow,
+.rsvp .script {
+  color: var(--champan);
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: var(--marfil);
+  font-size: .85rem;
+}
+
+.music-button {
+  position: fixed;
+  z-index: 50;
+  bottom: 18px;
+  right: 18px;
+  border: 1px solid var(--champan);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background: var(--cafe);
+  color: var(--marfil);
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 60px 18px;
+  }
+
+  .family-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hero-content {
+    padding: 30px 15px;
+  }
+
+  .dress-photo {
+    height: 400px;
+  }
+
+  .carousel-frame img {
+    height: 60vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SOBRE DE ENTRADA -->
+<div class="envelope-screen" id="envelopeScreen">
+  <p class="eyebrow">Una invitación especial</p>
+  <h2>Mis XV años</h2>
+  <p class="script">Natalia</p>
+
+  <button class="envelope" id="envelope" aria-label="Abrir invitación"></button>
+
+  <small>Toca el sobre para abrir tu invitación</small>
+</div>
+
+<!-- MÚSICA: sube tu archivo como music.mp3 -->
+<audio id="backgroundMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-button" id="musicToggle" aria-label="Activar o pausar música">
+  ♫
+</button>
+
+<!-- PORTADA: NATLI32 -->
+<header class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">Con la bendición de Dios y de mi familia</p>
+    <p>Te invito a celebrar conmigo</p>
+    <h1>Natalia</h1>
+    <p class="script">Mis XV años</p>
+    <div class="hero-date">7 · Noviembre · 2026</div>
+  </div>
+</header>
+
+<!-- FRASE -->
+<section>
+  <p class="eyebrow">Un día para recordar</p>
+  <h2>Una nueva etapa</h2>
+  <p class="script">
+    “Hay momentos que se guardan en el corazón
+    y personas con quienes vale la pena celebrarlos”.
+  </p>
+</section>
+
+<!-- CUENTA REGRESIVA -->
+<section class="countdown">
+  <div>
+    <p class="eyebrow">La cuenta regresiva comienza</p>
+    <h2>Nos vemos pronto</h2>
+    <div class="timer">
+      <div class="timer-item"><strong id="days">0</strong><span>Días</span></div>
+      <div class="timer-item"><strong id="hours">0</strong><span>Horas</span></div>
+      <div class="timer-item"><strong id="minutes">0</strong><span>Minutos</span></div>
+      <div class="timer-item"><strong id="seconds">0</strong><span>Segundos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PADRES Y PADRINOS: PERSONALIZA LOS NOMBRES -->
+<section class="family">
+  <p class="eyebrow">Con amor</p>
+  <h2>Mi familia</h2>
+
+  <div class="family-grid">
+    <div>
+      <h3>Mis padres</h3>
+      <p>[Nombre de mamá]</p>
+      <p class="script">y</p>
+      <p>[Nombre de papá]</p>
+    </div>
+
+    <div>
+      <h3>Mis padrinos</h3>
+      <p>[Nombre de padrino]</p>
+      <p class="script">y</p>
+      <p>[Nombre de madrina]</p>
+    </div>
+  </div>
+</section>
+
+<!-- CEREMONIA RELIGIOSA -->
+<section>
+  <p class="eyebrow">Ceremonia religiosa</p>
+  <h2>La misa</h2>
+  <p>7 de noviembre de 2026</p>
+  <p class="script">7:00 p. m.</p>
+  <p>Será un honor compartir este momento contigo.</p>
+
+  <a class="btn" target="_blank" rel="noopener"
+     href="https://maps.app.goo.gl/SDDv9FsMZULzLXfJ6?g_st=aw">
+    Ver ubicación de la iglesia
+  </a>
+</section>
+
+<!-- RECEPCIÓN: NATLI38 -->
+<section>
+  <p class="eyebrow">Después de la ceremonia</p>
+  <h2>La recepción</h2>
+
+  <img class="reception-photo"
+       src="images/NATLI38.jpg"
+       alt="Fotografía de Natalia para la recepción">
+
+  <div class="location-card">
+    <p class="script">Celebremos juntos</p>
+    <h3>Salón de recepción</h3>
+    <p>[Nombre del salón]</p>
+    <p>Hora: [Agregar hora de recepción]</p>
+
+    <a class="btn" target="_blank" rel="noopener"
+       href="https://maps.app.goo.gl/ZiFp9PCKzq1rMDfd9?g_st=aw">
+      Cómo llegar al salón
+    </a>
+  </div>
+</section>
+
+<!-- CÓDIGO DE VESTIMENTA: NATLI23 -->
+<section class="dress-code">
+  <p class="eyebrow">Código de vestimenta</p>
+  <h2>Estilo vaquero elegante</h2>
+
+  <img class="dress-photo"
+       src="images/NATLI23.jpg"
+       alt="Fotografía de Natalia para el código de vestimenta">
+
+  <p>Te invitamos a acompañarnos con un estilo regional mexicano y vaquero elegante.</p>
+  <p>Te sugerimos tonos tierra, beige, café, arena y otros colores cálidos.</p>
+
+  <div class="color-note">
+    <p class="script">Un detalle importante</p>
+    <p>El color champán queda reservado para Natalia en su día especial.</p>
+  </div>
+</section>
+
+<!-- GALERÍA AUTOMÁTICA: NATLI1 A NATLI40 -->
+<section class="gallery">
+  <p class="eyebrow">Recuerdos de Natalia</p>
+  <h2>Mi galería</h2>
+  <p class="script">Un poquito de mí para compartir contigo.</p>
+
+  <div class="carousel">
+    <div class="carousel-frame">
+      <img id="galleryImage" src="" alt="Fotografía de Natalia">
+    </div>
+
+    <div class="carousel-controls">
+      <button id="prevPhoto" aria-label="Fotografía anterior">‹</button>
+      <span id="galleryCounter">1 / 37</span>
+      <button id="nextPhoto" aria-label="Fotografía siguiente">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- FRASE DIVISORIA -->
+<section>
+  <p class="eyebrow">Una noche para celebrar</p>
+  <h2>Que comience la magia</h2>
+  <p class="script">
+    “Los mejores recuerdos nacen cuando compartimos
+    la alegría con quienes queremos”.
+  </p>
+</section>
+
+<!-- ITINERARIO: AJUSTA LAS HORAS CUANDO ESTÉN CONFIRMADAS -->
+<section class="itinerary">
+  <p class="eyebrow">Programa del evento</p>
+  <h2>Itinerario</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>7:00 p. m. · Misa</h3>
+      <p>Ceremonia religiosa.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>[Hora] · Recepción</h3>
+      <p>Bienvenida a nuestros invitados.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>[Hora] · Cena</h3>
+      <p>Compartiremos una deliciosa cena.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>[Hora] · Vals</h3>
+      <p>Un momento especial para Natalia.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>[Hora] · ¡A bailar!</h3>
+      <p>Que la música y la alegría nos acompañen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMACIÓN POR WHATSAPP -->
+<section class="rsvp">
+  <p class="eyebrow">Tu presencia es importante</p>
+  <h2>¿Me acompañas?</h2>
+  <p>Confirma tu asistencia y celebremos juntos esta noche tan especial.</p>
+
+  <a class="btn btn-outline"
+     id="whatsappButton"
+     href="#"
+     target="_blank"
+     rel="noopener">
+    Confirmar por WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p class="script">Con cariño, Natalia</p>
+  <p>Mis XV años · 7 de noviembre de 2026</p>
+</footer>
+
+<script>
+/* ABRIR SOBRE Y ACTIVAR MÚSICA */
+const envelope = document.getElementById("envelope");
+const envelopeScreen = document.getElementById("envelopeScreen");
+const music = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+envelope.addEventListener("click", async () => {
+  envelope.classList.add("open");
+
+  try {
+    await music.play();
+  } catch (error) {
+    console.log("Puedes activar la música con el botón ♫.");
+  }
+
+  setTimeout(() => {
+    envelopeScreen.classList.add("opened");
+  }, 450);
+});
+
+musicToggle.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+    } catch (error) {
+      alert("No se pudo reproducir la música. Revisa el archivo music.mp3.");
+    }
+  } else {
+    music.pause();
+  }
+});
+
+/* CUENTA REGRESIVA
+   Se utiliza una hora provisional de las 7:00 p. m.
+   Ajusta la fecha y hora si necesitas otra zona horaria. */
+const eventDate = new Date("2026-11-07T19:00:00-06:00").getTime();
+
+function updateCountdown() {
+  const difference = eventDate - Date.now();
+
+  if (difference <= 0) {
+    document.getElementById("days").textContent = "0";
+    document.getElementById("hours").textContent = "0";
+    document.getElementById("minutes").textContent = "0";
+    document.getElementById("seconds").textContent = "0";
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    Math.floor(difference / 86400000);
+
+  document.getElementById("hours").textContent =
+    Math.floor((difference % 86400000) / 3600000);
+
+  document.getElementById("minutes").textContent =
+    Math.floor((difference % 3600000) / 60000);
+
+  document.getElementById("seconds").textContent =
+    Math.floor((difference % 60000) / 1000);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* GALERÍA
+   Excluye NATLI23, NATLI32 y NATLI38.
+   NATLI40 sí se incluye.
+   Los archivos se buscan dentro de la carpeta images. */
+const excludedPhotos = [23, 32, 38];
+
+const galleryPhotos = Array.from({ length: 40 }, (_, index) => index + 1)
+  .filter(number => !excludedPhotos.includes(number))
+  .map(number => `images/NATLI${number}.jpg`);
+
+let currentPhoto = 0;
+
+const galleryImage = document.getElementById("galleryImage");
+const galleryCounter = document.getElementById("galleryCounter");
+
+function showPhoto(index) {
+  currentPhoto = (index + galleryPhotos.length) % galleryPhotos.length;
+
+  galleryImage.src = galleryPhotos[currentPhoto];
+  galleryCounter.textContent =
+    `${currentPhoto + 1} / ${galleryPhotos.length}`;
+}
+
+document.getElementById("prevPhoto").addEventListener("click", () => {
+  showPhoto(currentPhoto - 1);
+});
+
+document.getElementById("nextPhoto").addEventListener("click", () => {
+  showPhoto(currentPhoto + 1);
+});
+
+galleryImage.addEventListener("error", () => {
+  galleryImage.alt =
+    "No se encontró esta fotografía. Revisa el nombre y la extensión del archivo.";
+});
+
+showPhoto(0);
+
+/* DESLIZAR GALERÍA EN CELULARES */
+let touchStartX = 0;
+
+galleryImage.addEventListener("touchstart", event => {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+galleryImage.addEventListener("touchend", event => {
+  const touchEndX = event.changedTouches[0].screenX;
+  const difference = touchEndX - touchStartX;
+
+  if (Math.abs(difference) > 45) {
+    showPhoto(currentPhoto + (difference < 0 ? 1 : -1));
+  }
+}, { passive: true });
+
+/* WHATSAPP
+   Reemplaza el número de ejemplo por el número real,
+   incluyendo el código de país, sin + ni espacios. */
+const whatsappNumber = "5210000000000";
+const whatsappMessage =
+  "¡Hola! Confirmo mi asistencia a los XV años de Natalia, el 7 de noviembre de 2026.";
+
+document.getElementById("whatsappButton").href =
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+</script>
+
+</body>
+</html>
+```
