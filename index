@@ -1,10 +1,12 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis XV Años | Natalia</title>
+<meta name="theme-color" content="#F8F2E8">
+<meta name="description" content="Invitación a los XV años de Natali Gissel Reyes Segura. Sábado 7 de noviembre de 2026.">
+<title>XV Años | Natali Gissel</title>
 
 <style>
 :root {
@@ -24,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 body {
@@ -33,13 +36,13 @@ body {
   line-height: 1.7;
 }
 
+body, button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 img {
   display: block;
   max-width: 100%;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -56,14 +59,18 @@ section {
   text-align: center;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 h2 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1.35rem;
 }
 
 p {
@@ -72,7 +79,7 @@ p {
 
 .eyebrow {
   color: var(--cuero);
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   font-size: .75rem;
   margin-bottom: 18px;
@@ -83,14 +90,21 @@ p {
   color: var(--cuero);
 }
 
+.ornament {
+  color: var(--taupe);
+  letter-spacing: 8px;
+  margin: 20px 0;
+}
+
 .btn {
   display: inline-block;
   background: var(--cuero);
   color: var(--marfil);
   border: 1px solid var(--cuero);
   padding: 12px 24px;
-  margin: 10px 5px;
-  transition: .25s;
+  margin: 12px 5px;
+  transition: background .25s, color .25s;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -98,49 +112,14 @@ p {
 }
 
 .btn-outline {
-  color: var(--cafe);
+  color: var(--marfil);
   background: transparent;
-  border-color: var(--cuero);
+  border-color: var(--champan);
 }
 
-/* PORTADA */
-
-.hero {
-  min-height: 100svh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 35px 20px;
-  color: white;
-  background:
-    linear-gradient(#24180d66, #24180d88),
-    url("images/NATLI32.jpg") center 35% / cover no-repeat;
-}
-
-.hero-content {
-  width: min(650px, 100%);
-  padding: 38px 20px;
-  border: 1px solid #E8D5B5B0;
-  background: #49332638;
-  backdrop-filter: blur(2px);
-}
-
-.hero .eyebrow,
-.hero .script {
-  color: var(--champan);
-}
-
-.hero h1 {
-  font-size: clamp(3.5rem, 12vw, 7rem);
-  margin: 12px 0;
-}
-
-.hero-date {
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-size: .9rem;
-  margin-top: 24px;
+.btn-outline:hover {
+  background: var(--champan);
+  color: var(--cafe);
 }
 
 /* SOBRE DE BIENVENIDA */
@@ -149,7 +128,9 @@ p {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: var(--marfil);
+  background:
+    radial-gradient(ellipse at top, #ffffff 0%, transparent 65%),
+    var(--marfil);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,6 +146,10 @@ p {
   pointer-events: none;
 }
 
+.envelope-screen h2 {
+  margin-bottom: 0;
+}
+
 .envelope {
   position: relative;
   width: min(300px, 80vw);
@@ -174,6 +159,7 @@ p {
   border: 1px solid var(--taupe);
   box-shadow: 0 15px 35px #49332620;
   cursor: pointer;
+  appearance: none;
 }
 
 .envelope::before {
@@ -210,6 +196,66 @@ p {
 .envelope-screen small {
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-size: .7rem;
+}
+
+/* PORTADA */
+
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  color: white;
+  background:
+    linear-gradient(#24180d66, #24180d99),
+    url("images/NATLI32.jpg") center 35% / cover no-repeat;
+}
+
+.hero-content {
+  width: min(650px, 100%);
+  padding: 38px 20px;
+  border: 1px solid #E8D5B5B0;
+  background: #49332645;
+  backdrop-filter: blur(2px);
+  text-align: center;
+}
+
+.hero .eyebrow,
+.hero .script {
+  color: var(--champan);
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 11vw, 6.5rem);
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.hero-subtitle {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-date {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: .9rem;
+  margin-top: 24px;
+}
+
+/* FRASES */
+
+.quote-section {
+  background: var(--marfil);
+}
+
+.quote-text {
+  max-width: 760px;
+  margin: 25px auto;
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
 }
 
 /* CONTADOR */
@@ -222,7 +268,7 @@ p {
   align-items: center;
   color: white;
   background:
-    linear-gradient(#24180d88, #24180d88),
+    linear-gradient(#24180d88, #24180d99),
     url("images/NATLI32.jpg") center 45% / cover no-repeat;
 }
 
@@ -235,7 +281,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   margin-top: 30px;
 }
 
@@ -253,12 +299,17 @@ p {
 }
 
 .timer-item span {
-  font-size: .75rem;
+  font-size: .7rem;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* FAMILIA */
+/* INVITACIÓN Y FAMILIA */
+
+.invitation {
+  max-width: 850px;
+  margin: auto;
+}
 
 .family {
   background: #EFE4D4;
@@ -268,31 +319,54 @@ p {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 35px;
-  max-width: 750px;
+  max-width: 850px;
   margin: 35px auto 0;
 }
 
-.family h3 {
-  font-size: 1.4rem;
-  font-weight: normal;
-  margin-bottom: 10px;
+.family-card {
+  padding: 25px 18px;
+  border: 1px solid var(--arena);
+}
+
+.family-card h3 {
+  margin-bottom: 15px;
+}
+
+.family-card p {
+  margin: 7px 0;
+}
+
+/* UBICACIONES */
+
+.location-card {
+  max-width: 680px;
+  margin: 30px auto 0;
+  padding: 30px 20px;
+  border: 1px solid var(--arena);
+}
+
+.location-card h3 {
+  margin: 8px 0;
+}
+
+.location-address {
+  font-size: .95rem;
+}
+
+.location-time {
+  color: var(--cuero);
+  font-size: 1.2rem;
+  font-style: italic;
 }
 
 /* RECEPCIÓN */
 
 .reception-photo {
-  width: 100%;
+  width: min(750px, 100%);
   height: min(65vh, 550px);
   object-fit: cover;
   object-position: center 35%;
   margin: 30px auto;
-}
-
-.location-card {
-  max-width: 650px;
-  margin: auto;
-  padding: 30px 20px;
-  border: 1px solid var(--arena);
 }
 
 /* VESTIMENTA */
@@ -310,13 +384,13 @@ p {
 }
 
 .color-note {
-  max-width: 550px;
+  max-width: 600px;
   margin: 25px auto;
   padding: 20px;
   border: 1px solid var(--arena);
 }
 
-/* CARRUSEL */
+/* GALERÍA */
 
 .gallery {
   background: var(--marfil);
@@ -337,7 +411,7 @@ p {
   width: 100%;
   height: min(70vh, 650px);
   object-fit: contain;
-  background: #e8d5b5;
+  background: var(--champan);
 }
 
 .carousel-controls {
@@ -369,7 +443,7 @@ p {
 }
 
 .timeline {
-  max-width: 520px;
+  max-width: 560px;
   margin: 35px auto 0;
   text-align: left;
   border-left: 1px solid var(--cuero);
@@ -378,7 +452,11 @@ p {
 
 .timeline-item {
   position: relative;
-  padding: 0 0 28px 10px;
+  padding: 0 0 26px 10px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
 }
 
 .timeline-item::before {
@@ -393,8 +471,11 @@ p {
 }
 
 .timeline-item h3 {
-  font-weight: normal;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.timeline-item p {
+  font-size: .95rem;
 }
 
 /* CONFIRMACIÓN Y PIE */
@@ -416,6 +497,8 @@ footer {
   font-size: .85rem;
 }
 
+/* MÚSICA */
+
 .music-button {
   position: fixed;
   z-index: 50;
@@ -428,7 +511,10 @@ footer {
   background: var(--cafe);
   color: var(--marfil);
   cursor: pointer;
+  box-shadow: 0 4px 14px #0002;
 }
+
+/* AJUSTES PARA CELULAR */
 
 @media (max-width: 600px) {
   section {
@@ -437,11 +523,15 @@ footer {
 
   .family-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
   }
 
   .hero-content {
     padding: 30px 15px;
+  }
+
+  .hero-date {
+    letter-spacing: 2px;
   }
 
   .dress-photo {
@@ -450,6 +540,29 @@ footer {
 
   .carousel-frame img {
     height: 60vh;
+  }
+
+  .timer {
+    gap: 8px;
+  }
+
+  .timer-item {
+    min-width: 68px;
+    padding: 9px 7px;
+  }
+
+  .timer-item strong {
+    font-size: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -461,191 +574,292 @@ footer {
 <div class="envelope-screen" id="envelopeScreen">
   <p class="eyebrow">Una invitación especial</p>
   <h2>Mis XV años</h2>
-  <p class="script">Natalia</p>
+  <p class="script">Natali Gissel</p>
 
-  <button class="envelope" id="envelope" aria-label="Abrir invitación"></button>
+  <button class="envelope" id="envelope"
+    aria-label="Abrir invitación"></button>
 
   <small>Toca el sobre para abrir tu invitación</small>
+  <p class="script">Con cariño, Natali</p>
 </div>
 
-<!-- MÚSICA: sube tu archivo como music.mp3 -->
-<audio id="backgroundMusic" loop>
+<!-- MÚSICA: el archivo debe llamarse music.mp3 -->
+<audio id="backgroundMusic" preload="auto" loop>
   <source src="music.mp3" type="audio/mpeg">
+  Tu navegador no puede reproducir este archivo de audio.
 </audio>
 
-<button class="music-button" id="musicToggle" aria-label="Activar o pausar música">
-  ♫
-</button>
+<button class="music-button" id="musicToggle"
+  aria-label="Pausar música" aria-pressed="true">♫</button>
 
 <!-- PORTADA: NATLI32 -->
 <header class="hero">
   <div class="hero-content">
     <p class="eyebrow">Con la bendición de Dios y de mi familia</p>
     <p>Te invito a celebrar conmigo</p>
-    <h1>Natalia</h1>
-    <p class="script">Mis XV años</p>
-    <div class="hero-date">7 · Noviembre · 2026</div>
+    <h1>Natali Gissel</h1>
+    <p class="hero-subtitle">Mis XV años</p>
+    <p class="hero-date">Sábado · 7 · Noviembre · 2026</p>
+    <p class="script">Una noche para recordar</p>
   </div>
 </header>
 
-<!-- FRASE -->
-<section>
-  <p class="eyebrow">Un día para recordar</p>
-  <h2>Una nueva etapa</h2>
-  <p class="script">
-    “Hay momentos que se guardan en el corazón
-    y personas con quienes vale la pena celebrarlos”.
+<!-- FRASE OFICIAL -->
+<section class="quote-section">
+  <p class="eyebrow">Una nueva etapa comienza</p>
+  <h2>Quince primaveras</h2>
+  <div class="ornament">✧ ❦ ✧</div>
+  <p class="quote-text script">
+    “Quince primaveras han florecido en mi camino, y hoy doy gracias
+    a Dios por regalarme esta nueva etapa de la vida. Con el corazón
+    lleno de alegría y bendiciones, abro mis brazos para recibir a
+    quienes amo en este día tan especial.”
   </p>
 </section>
 
 <!-- CUENTA REGRESIVA -->
 <section class="countdown">
   <div>
-    <p class="eyebrow">La cuenta regresiva comienza</p>
+    <p class="eyebrow">Cada vez falta menos</p>
     <h2>Nos vemos pronto</h2>
+
     <div class="timer">
-      <div class="timer-item"><strong id="days">0</strong><span>Días</span></div>
-      <div class="timer-item"><strong id="hours">0</strong><span>Horas</span></div>
-      <div class="timer-item"><strong id="minutes">0</strong><span>Minutos</span></div>
-      <div class="timer-item"><strong id="seconds">0</strong><span>Segundos</span></div>
+      <div class="timer-item">
+        <strong id="days">0</strong><span>Días</span>
+      </div>
+      <div class="timer-item">
+        <strong id="hours">0</strong><span>Horas</span>
+      </div>
+      <div class="timer-item">
+        <strong id="minutes">0</strong><span>Minutos</span>
+      </div>
+      <div class="timer-item">
+        <strong id="seconds">0</strong><span>Segundos</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PADRES Y PADRINOS: PERSONALIZA LOS NOMBRES -->
+<!-- INVITACIÓN Y FAMILIA -->
 <section class="family">
-  <p class="eyebrow">Con amor</p>
-  <h2>Mi familia</h2>
+  <div class="invitation">
+    <p class="eyebrow">Una invitación hecha con amor</p>
+    <h2>Con la bendición de Dios</h2>
+
+    <p>
+      Con la bendición de Dios y llenos de gratitud por la vida,
+      tenemos el inmenso honor de invitarles a celebrar los
+    </p>
+
+    <h2 class="script">XV años</h2>
+    <p>de nuestra amada hija</p>
+    <h2>Natali Gissel Reyes Segura</h2>
+
+    <p>
+      Acompáñennos a compartir este sueño hecho realidad, donde la fe,
+      el amor y la alegría se unen para dar la bienvenida a una nueva
+      etapa de su vida.
+    </p>
+  </div>
+
+  <div class="ornament">✧ ❦ ✧</div>
 
   <div class="family-grid">
-    <div>
-      <h3>Mis padres</h3>
-      <p>[Nombre de mamá]</p>
-      <p class="script">y</p>
-      <p>[Nombre de papá]</p>
+    <div class="family-card">
+      <h3>Su madre</h3>
+      <p class="script">Con todo mi amor</p>
+      <p>Aurora Segura Jiménez</p>
     </div>
 
-    <div>
-      <h3>Mis padrinos</h3>
-      <p>[Nombre de padrino]</p>
+    <div class="family-card">
+      <h3>En compañía de sus abuelos</h3>
+      <p>Aurora Jiménez Chávez</p>
+      <p>Jesús Segura Chávez</p>
+      <p>Isaías Reyes Uribe</p>
+    </div>
+
+    <div class="family-card">
+      <h3>Nuestros queridos padrinos</h3>
+      <p>Said Segura Jiménez</p>
       <p class="script">y</p>
-      <p>[Nombre de madrina]</p>
+      <p>Ariadna Hernandez Pioquinto</p>
     </div>
   </div>
 </section>
 
 <!-- CEREMONIA RELIGIOSA -->
 <section>
-  <p class="eyebrow">Ceremonia religiosa</p>
-  <h2>La misa</h2>
-  <p>7 de noviembre de 2026</p>
-  <p class="script">7:00 p. m.</p>
-  <p>Será un honor compartir este momento contigo.</p>
+  <p class="eyebrow">Primero, damos gracias</p>
+  <h2>Santa misa</h2>
+  <p class="location-time">7:00 p. m.</p>
+  <div class="ornament">✧</div>
 
-  <a class="btn" target="_blank" rel="noopener"
-     href="https://maps.app.goo.gl/SDDv9FsMZULzLXfJ6?g_st=aw">
-    Ver ubicación de la iglesia
-  </a>
+  <div class="location-card">
+    <h3>Parroquia Nuestra Señora del Rosario</h3>
+    <p class="location-address">
+      C. Río Rhin s/n, Col. Las Vegas,<br>
+      C. P. 94297, Boca del Río, Veracruz.
+    </p>
+    <p>Sábado 7 de noviembre de 2026</p>
+
+    <a class="btn" target="_blank" rel="noopener noreferrer"
+      href="https://maps.app.goo.gl/SDDv9FsMZULzLXfJ6?g_st=aw">
+      Ver ubicación de la iglesia
+    </a>
+  </div>
 </section>
 
 <!-- RECEPCIÓN: NATLI38 -->
 <section>
-  <p class="eyebrow">Después de la ceremonia</p>
+  <p class="eyebrow">La celebración continúa</p>
   <h2>La recepción</h2>
 
   <img class="reception-photo"
-       src="images/NATLI38.jpg"
-       alt="Fotografía de Natalia para la recepción">
+    src="images/NATLI38.jpg"
+    alt="Fotografía de Natali Gissel"
+    loading="lazy">
 
   <div class="location-card">
     <p class="script">Celebremos juntos</p>
-    <h3>Salón de recepción</h3>
-    <p>[Nombre del salón]</p>
-    <p>Hora: [Agregar hora de recepción]</p>
+    <h3>Finca El Enkanto</h3>
+    <p class="location-time">8:30 p. m.</p>
 
-    <a class="btn" target="_blank" rel="noopener"
-       href="https://maps.app.goo.gl/ZiFp9PCKzq1rMDfd9?g_st=aw">
-      Cómo llegar al salón
+    <p class="location-address">
+      Camino Real s/n, Villa de Guadalupe,<br>
+      C. P. 94273, El Tejar, Medellín de Bravo, Veracruz.
+    </p>
+
+    <a class="btn" target="_blank" rel="noopener noreferrer"
+      href="https://maps.app.goo.gl/ZiFp9PCKzq1rMDfd9?g_st=aw">
+      Cómo llegar a la recepción
     </a>
   </div>
 </section>
 
 <!-- CÓDIGO DE VESTIMENTA: NATLI23 -->
 <section class="dress-code">
-  <p class="eyebrow">Código de vestimenta</p>
-  <h2>Estilo vaquero elegante</h2>
+  <p class="eyebrow">Indicaciones especiales</p>
+  <h2>Elegante tipo jardín</h2>
 
   <img class="dress-photo"
-       src="images/NATLI23.jpg"
-       alt="Fotografía de Natalia para el código de vestimenta">
+    src="images/NATLI23.jpg"
+    alt="Fotografía de Natali para el código de vestimenta"
+    loading="lazy">
 
-  <p>Te invitamos a acompañarnos con un estilo regional mexicano y vaquero elegante.</p>
-  <p>Te sugerimos tonos tierra, beige, café, arena y otros colores cálidos.</p>
+  <p>
+    Nos encantará que nos acompañes con un estilo elegante tipo jardín,
+    con sombreros y detalles de estilo mexicano.
+  </p>
+  <p class="script">¡Nuestra temática será Cielito Lindo!</p>
 
   <div class="color-note">
     <p class="script">Un detalle importante</p>
-    <p>El color champán queda reservado para Natalia en su día especial.</p>
+    <p>
+      El color champán es exclusivo de la quinceañera.
+      Agradecemos tu comprensión para que Natali brille como la
+      protagonista de esta noche tan especial.
+    </p>
   </div>
+
+  <p class="eyebrow">Colores sugeridos</p>
+  <p>Marfil · Arena · Café · Tonos tierra</p>
 </section>
 
-<!-- GALERÍA AUTOMÁTICA: NATLI1 A NATLI40 -->
+<!-- GALERÍA: NATLI1 A NATLI40, EXCEPTO 23, 32 Y 38 -->
 <section class="gallery">
-  <p class="eyebrow">Recuerdos de Natalia</p>
+  <p class="eyebrow">Recuerdos de Natali</p>
   <h2>Mi galería</h2>
   <p class="script">Un poquito de mí para compartir contigo.</p>
 
   <div class="carousel">
     <div class="carousel-frame">
-      <img id="galleryImage" src="" alt="Fotografía de Natalia">
+      <img id="galleryImage"
+        src="images/NATLI1.jpg"
+        alt="Fotografía de Natali Gissel"
+        loading="lazy">
     </div>
 
     <div class="carousel-controls">
-      <button id="prevPhoto" aria-label="Fotografía anterior">‹</button>
-      <span id="galleryCounter">1 / 37</span>
-      <button id="nextPhoto" aria-label="Fotografía siguiente">›</button>
+      <button id="prevPhoto" type="button"
+        aria-label="Fotografía anterior">‹</button>
+      <span id="galleryCounter" aria-live="polite">1 / 37</span>
+      <button id="nextPhoto" type="button"
+        aria-label="Fotografía siguiente">›</button>
     </div>
   </div>
 </section>
 
 <!-- FRASE DIVISORIA -->
-<section>
+<section class="quote-section">
   <p class="eyebrow">Una noche para celebrar</p>
   <h2>Que comience la magia</h2>
-  <p class="script">
-    “Los mejores recuerdos nacen cuando compartimos
-    la alegría con quienes queremos”.
+  <div class="ornament">✧ ❦ ✧</div>
+  <p class="quote-text script">
+    “Gracias Dios por cada paso, cada sonrisa y cada sueño que hoy
+    celebramos. Gracias familia y padrinos, por ser mi raíz y mi
+    inspiración. ¡Los espero con todo mi corazón!”
   </p>
+  <p>— Natali Gissel</p>
 </section>
 
-<!-- ITINERARIO: AJUSTA LAS HORAS CUANDO ESTÉN CONFIRMADAS -->
+<!-- ITINERARIO -->
 <section class="itinerary">
   <p class="eyebrow">Programa del evento</p>
   <h2>Itinerario</h2>
+  <p class="script">Una noche llena de momentos especiales</p>
 
   <div class="timeline">
     <div class="timeline-item">
-      <h3>7:00 p. m. · Misa</h3>
-      <p>Ceremonia religiosa.</p>
+      <h3>7:00 p. m. · Santa misa</h3>
+      <p>Damos gracias por esta nueva etapa en la vida de Natali.</p>
     </div>
 
     <div class="timeline-item">
-      <h3>[Hora] · Recepción</h3>
-      <p>Bienvenida a nuestros invitados.</p>
+      <h3>8:30 p. m. · Recepción</h3>
+      <p>Bienvenida a nuestros invitados en Finca El Enkanto.</p>
     </div>
 
     <div class="timeline-item">
-      <h3>[Hora] · Cena</h3>
-      <p>Compartiremos una deliciosa cena.</p>
+      <h3>9:00 p. m. · El vals</h3>
+      <p>Un momento inolvidable para nuestra quinceañera.</p>
     </div>
 
     <div class="timeline-item">
-      <h3>[Hora] · Vals</h3>
-      <p>Un momento especial para Natalia.</p>
+      <h3>9:15 p. m. · Palabras de bienvenida</h3>
+      <p>Compartimos la alegría de esta ocasión tan especial.</p>
     </div>
 
     <div class="timeline-item">
-      <h3>[Hora] · ¡A bailar!</h3>
-      <p>Que la música y la alegría nos acompañen.</p>
+      <h3>9:30 p. m. · Brindis</h3>
+      <p>Levantamos nuestras copas por Natali y su futuro.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>9:45 p. m. · Cena</h3>
+      <p>Un momento para disfrutar y compartir en familia.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>11:00 p. m. · Música y baile</h3>
+      <p>¡Que siga la fiesta y comience la diversión!</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>3:30 a. m. · Corte del pastel</h3>
+      <p>Un dulce recuerdo para compartir juntos.</p>
+      <p>Domingo 8 de noviembre.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>3:45 a. m. · Recuerditos y despedida</h3>
+      <p>Gracias por formar parte de esta noche tan especial.</p>
+      <p>Domingo 8 de noviembre.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>4:00 a. m. · Fin del evento</h3>
+      <p>Nos despedimos con el corazón lleno de alegría.</p>
+      <p>Domingo 8 de noviembre.</p>
     </div>
   </div>
 </section>
@@ -654,37 +868,86 @@ footer {
 <section class="rsvp">
   <p class="eyebrow">Tu presencia es importante</p>
   <h2>¿Me acompañas?</h2>
-  <p>Confirma tu asistencia y celebremos juntos esta noche tan especial.</p>
+  <p>
+    Confirma tu asistencia y celebremos juntos esta noche
+    tan especial.
+  </p>
 
   <a class="btn btn-outline"
-     id="whatsappButton"
-     href="#"
-     target="_blank"
-     rel="noopener">
+    id="whatsappButton"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer">
     Confirmar por WhatsApp
   </a>
+
+  <p id="whatsappHelp" style="font-size:.8rem;">
+    La confirmación estará disponible al configurar el número de WhatsApp.
+  </p>
 </section>
 
 <footer>
-  <p class="script">Con cariño, Natalia</p>
+  <p class="script">Con todo mi amor, Natali Gissel</p>
   <p>Mis XV años · 7 de noviembre de 2026</p>
+  <p>Una noche para guardar en el corazón.</p>
 </footer>
 
 <script>
-/* ABRIR SOBRE Y ACTIVAR MÚSICA */
+/* =========================================
+   MÚSICA
+   Comienza en el segundo 13 al abrir el sobre.
+   El archivo debe llamarse music.mp3 y estar
+   junto a index.html.
+========================================= */
+
+const MUSIC_START_SECONDS = 13;
+
 const envelope = document.getElementById("envelope");
 const envelopeScreen = document.getElementById("envelopeScreen");
 const music = document.getElementById("backgroundMusic");
 const musicToggle = document.getElementById("musicToggle");
 
+let invitationOpened = false;
+let musicStartedOnce = false;
+
+function updateMusicButton() {
+  const playing = !music.paused;
+  musicToggle.textContent = playing ? "♫" : "♪";
+  musicToggle.setAttribute(
+    "aria-label",
+    playing ? "Pausar música" : "Reanudar música"
+  );
+  musicToggle.setAttribute("aria-pressed", String(playing));
+}
+
+async function startMusic() {
+  try {
+    if (!musicStartedOnce) {
+      music.currentTime = MUSIC_START_SECONDS;
+    } else if (music.ended) {
+      music.currentTime = MUSIC_START_SECONDS;
+    }
+
+    await music.play();
+    musicStartedOnce = true;
+    updateMusicButton();
+  } catch (error) {
+    updateMusicButton();
+    console.warn(
+      "No se pudo reproducir la música. Comprueba que music.mp3 esté junto a index.html.",
+      error
+    );
+  }
+}
+
 envelope.addEventListener("click", async () => {
+  if (invitationOpened) return;
+
+  invitationOpened = true;
   envelope.classList.add("open");
 
-  try {
-    await music.play();
-  } catch (error) {
-    console.log("Puedes activar la música con el botón ♫.");
-  }
+  // La música intenta iniciar después del toque del invitado.
+  await startMusic();
 
   setTimeout(() => {
     envelopeScreen.classList.add("opened");
@@ -693,55 +956,66 @@ envelope.addEventListener("click", async () => {
 
 musicToggle.addEventListener("click", async () => {
   if (music.paused) {
-    try {
-      await music.play();
-    } catch (error) {
-      alert("No se pudo reproducir la música. Revisa el archivo music.mp3.");
-    }
+    // Al reanudar, continúa desde el punto donde se pausó.
+    await startMusic();
   } else {
     music.pause();
+    updateMusicButton();
   }
 });
 
-/* CUENTA REGRESIVA
-   Se utiliza una hora provisional de las 7:00 p. m.
-   Ajusta la fecha y hora si necesitas otra zona horaria. */
+music.addEventListener("play", updateMusicButton);
+music.addEventListener("pause", updateMusicButton);
+
+/* Detiene el audio cuando el visitante sale de la página. */
+window.addEventListener("pagehide", () => {
+  music.pause();
+});
+
+/* =========================================
+   CUENTA REGRESIVA
+   Fecha de la misa: 7 de noviembre de 2026,
+   a las 7:00 p. m., hora de Veracruz.
+========================================= */
+
 const eventDate = new Date("2026-11-07T19:00:00-06:00").getTime();
 
 function updateCountdown() {
   const difference = eventDate - Date.now();
 
+  const days = document.getElementById("days");
+  const hours = document.getElementById("hours");
+  const minutes = document.getElementById("minutes");
+  const seconds = document.getElementById("seconds");
+
   if (difference <= 0) {
-    document.getElementById("days").textContent = "0";
-    document.getElementById("hours").textContent = "0";
-    document.getElementById("minutes").textContent = "0";
-    document.getElementById("seconds").textContent = "0";
+    days.textContent = "0";
+    hours.textContent = "0";
+    minutes.textContent = "0";
+    seconds.textContent = "0";
     return;
   }
 
-  document.getElementById("days").textContent =
-    Math.floor(difference / 86400000);
-
-  document.getElementById("hours").textContent =
-    Math.floor((difference % 86400000) / 3600000);
-
-  document.getElementById("minutes").textContent =
-    Math.floor((difference % 3600000) / 60000);
-
-  document.getElementById("seconds").textContent =
-    Math.floor((difference % 60000) / 1000);
+  days.textContent = Math.floor(difference / 86400000);
+  hours.textContent = Math.floor((difference % 86400000) / 3600000);
+  minutes.textContent = Math.floor((difference % 3600000) / 60000);
+  seconds.textContent = Math.floor((difference % 60000) / 1000);
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* GALERÍA
-   Excluye NATLI23, NATLI32 y NATLI38.
-   NATLI40 sí se incluye.
-   Los archivos se buscan dentro de la carpeta images. */
+/* =========================================
+   GALERÍA
+   Incluye NATLI1 a NATLI40, excepto 23, 32 y 38.
+========================================= */
+
 const excludedPhotos = [23, 32, 38];
 
-const galleryPhotos = Array.from({ length: 40 }, (_, index) => index + 1)
+const galleryPhotos = Array.from(
+  { length: 40 },
+  (_, index) => index + 1
+)
   .filter(number => !excludedPhotos.includes(number))
   .map(number => `images/NATLI${number}.jpg`);
 
@@ -751,8 +1025,10 @@ const galleryImage = document.getElementById("galleryImage");
 const galleryCounter = document.getElementById("galleryCounter");
 
 function showPhoto(index) {
-  currentPhoto = (index + galleryPhotos.length) % galleryPhotos.length;
+  currentPhoto =
+    (index + galleryPhotos.length) % galleryPhotos.length;
 
+  galleryImage.alt = `Fotografía ${currentPhoto + 1} de ${galleryPhotos.length} de Natali Gissel`;
   galleryImage.src = galleryPhotos[currentPhoto];
   galleryCounter.textContent =
     `${currentPhoto + 1} / ${galleryPhotos.length}`;
@@ -768,12 +1044,10 @@ document.getElementById("nextPhoto").addEventListener("click", () => {
 
 galleryImage.addEventListener("error", () => {
   galleryImage.alt =
-    "No se encontró esta fotografía. Revisa el nombre y la extensión del archivo.";
+    "No se encontró esta fotografía. Revisa su nombre y extensión dentro de la carpeta images.";
 });
 
-showPhoto(0);
-
-/* DESLIZAR GALERÍA EN CELULARES */
+/* Deslizar la galería en pantallas táctiles. */
 let touchStartX = 0;
 
 galleryImage.addEventListener("touchstart", event => {
@@ -789,17 +1063,38 @@ galleryImage.addEventListener("touchend", event => {
   }
 }, { passive: true });
 
-/* WHATSAPP
-   Reemplaza el número de ejemplo por el número real,
-   incluyendo el código de país, sin + ni espacios. */
-const whatsappNumber = "5210000000000";
-const whatsappMessage =
-  "¡Hola! Confirmo mi asistencia a los XV años de Natalia, el 7 de noviembre de 2026.";
+showPhoto(0);
 
-document.getElementById("whatsappButton").href =
-  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+/* =========================================
+   CONFIRMACIÓN POR WHATSAPP
+
+   Sustituye el número de ejemplo por el número
+   real, incluyendo el código de país, sin +,
+   espacios ni guiones.
+========================================= */
+
+const whatsappNumber = "5210000000000";
+
+const whatsappMessage =
+  "¡Hola! Confirmo mi asistencia a los XV años de Natali Gissel Reyes Segura, el sábado 7 de noviembre de 2026.";
+
+const whatsappButton = document.getElementById("whatsappButton");
+const whatsappHelp = document.getElementById("whatsappHelp");
+
+if (/^\d{10,15}$/.test(whatsappNumber) &&
+    whatsappNumber !== "5210000000000") {
+  whatsappButton.href =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  whatsappHelp.hidden = true;
+} else {
+  whatsappButton.addEventListener("click", event => {
+    event.preventDefault();
+    alert(
+      "Para activar las confirmaciones, coloca el número de WhatsApp real en la variable whatsappNumber al final del código."
+    );
+  });
+}
 </script>
 
 </body>
 </html>
-```
