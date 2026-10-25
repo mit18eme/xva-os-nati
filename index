@@ -1,12 +1,17 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#F8F2E8">
-<meta name="description" content="Invitación a los XV años de Natali Gissel Reyes Segura. Sábado 7 de noviembre de 2026.">
-<title>XV Años | Natali Gissel</title>
+<meta name="theme-color" content="#f8f2e8">
+
+<title>Mis XV años | Natali Gissel</title>
+<meta name="description" content="Acompáñame a celebrar mis XV años. Natali Gissel Reyes Segura.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -16,6 +21,7 @@
   --taupe: #9B8570;
   --cuero: #74543B;
   --cafe: #493326;
+  --blanco: #fffdf9;
 }
 
 * {
@@ -32,12 +38,9 @@ html {
 body {
   background: var(--marfil);
   color: var(--cafe);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.7;
-}
-
-body, button, a {
-  -webkit-tap-highlight-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
 }
 
 img {
@@ -47,7 +50,6 @@ img {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 button {
@@ -55,425 +57,590 @@ button {
 }
 
 section {
-  padding: 75px 20px;
-  text-align: center;
+  padding: 80px 22px;
 }
 
-h1, h2, h3 {
-  font-weight: normal;
-  line-height: 1.25;
-}
-
-h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  margin-bottom: 18px;
-}
-
-h3 {
-  font-size: 1.35rem;
-}
-
-p {
-  margin: 10px 0;
+.container {
+  width: min(1050px, 100%);
+  margin: auto;
 }
 
 .eyebrow {
-  color: var(--cuero);
-  letter-spacing: 3px;
+  font-size: .72rem;
+  letter-spacing: .24em;
   text-transform: uppercase;
-  font-size: .75rem;
-  margin-bottom: 18px;
+  color: var(--cuero);
+  line-height: 1.8;
 }
 
 .script {
-  font-style: italic;
-  color: var(--cuero);
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  text-align: center;
+  line-height: 1.1;
+  margin: 12px 0 20px;
+}
+
+.section-intro {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  text-align: center;
+  line-height: 1.9;
+  font-size: .9rem;
 }
 
 .ornament {
   color: var(--taupe);
-  letter-spacing: 8px;
-  margin: 20px 0;
+  text-align: center;
+  letter-spacing: .4em;
+  margin: 22px 0;
 }
 
 .btn {
   display: inline-block;
-  background: var(--cuero);
-  color: var(--marfil);
+  text-decoration: none;
   border: 1px solid var(--cuero);
-  padding: 12px 24px;
-  margin: 12px 5px;
-  transition: background .25s, color .25s;
+  padding: 13px 22px;
+  color: var(--cafe);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: transparent;
+  transition: .25s ease;
   cursor: pointer;
 }
 
 .btn:hover {
-  background: var(--cafe);
+  background: var(--cuero);
+  color: white;
 }
 
-.btn-outline {
-  color: var(--marfil);
-  background: transparent;
-  border-color: var(--champan);
-}
-
-.btn-outline:hover {
-  background: var(--champan);
-  color: var(--cafe);
+.center {
+  text-align: center;
 }
 
 /* PORTADA */
 
 .hero {
-  min-height: 100svh;
   position: relative;
+  min-height: 100svh;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 35px 20px;
-  color: white;
+  text-align: center;
+  background: var(--cafe);
+  color: var(--blanco);
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
   background:
-    linear-gradient(#24180d66, #24180d99),
+    linear-gradient(
+      to bottom,
+      rgba(35, 23, 15, .35),
+      rgba(35, 23, 15, .65)
+    ),
     url("images/NATLI32.jpg") center 35% / cover no-repeat;
 }
 
-.hero-content {
-  width: min(650px, 100%);
-  padding: 38px 20px;
-  border: 1px solid #E8D5B5B0;
-  background: #49332645;
-  backdrop-filter: blur(2px);
-  text-align: center;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(248, 242, 232, .75);
+  pointer-events: none;
+  z-index: -1;
 }
 
-.hero .eyebrow,
-.hero .script {
+.hero-content {
+  width: min(760px, 100%);
+  padding: 70px 26px 45px;
+}
+
+.hero .eyebrow {
   color: var(--champan);
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 11vw, 6.5rem);
-  margin: 12px 0;
-  overflow-wrap: anywhere;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: .98;
+  margin: 25px 0 5px;
 }
 
-.hero-subtitle {
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.hero .name {
+  font-size: clamp(3.5rem, 11vw, 7rem);
+  line-height: 1.2;
+  color: var(--champan);
+  margin: 8px 0 18px;
 }
 
 .hero-date {
-  letter-spacing: 3px;
+  margin-top: 25px;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  line-height: 2;
+}
+
+.hero-line {
+  width: 75px;
+  height: 1px;
+  background: var(--champan);
+  margin: 22px auto;
+}
+
+.scroll-cue {
+  display: inline-block;
+  margin-top: 35px;
+  text-decoration: none;
+  color: var(--blanco);
+  font-size: .68rem;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  font-size: .9rem;
-  margin-top: 24px;
+  animation: float 2s ease-in-out infinite;
 }
 
-/* FRASES */
-
-.quote-section {
-  background: var(--marfil);
+.scroll-cue span {
+  display: block;
+  font-size: 1.6rem;
+  margin-top: 5px;
 }
 
-.quote-text {
-  max-width: 760px;
-  margin: 25px auto;
-  font-size: clamp(1.1rem, 3vw, 1.45rem);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
-/* CONTADOR */
+/* MUSICA */
+
+.music-control {
+  position: fixed;
+  z-index: 20;
+  bottom: 18px;
+  right: 18px;
+  background: var(--cafe);
+  color: var(--blanco);
+  border: 1px solid var(--champan);
+  border-radius: 30px;
+  padding: 12px 17px;
+  font-size: .7rem;
+  cursor: pointer;
+  box-shadow: 0 4px 18px #0002;
+}
+
+/* MENSAJE */
+
+.message {
+  background: var(--blanco);
+  text-align: center;
+}
+
+.message-card {
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid var(--arena);
+  padding: clamp(30px, 7vw, 65px);
+  position: relative;
+}
+
+.message-card::before {
+  content: "✦";
+  color: var(--taupe);
+  font-size: 1.4rem;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.message-card p {
+  line-height: 2;
+  font-size: .92rem;
+}
+
+.message-card .script {
+  font-size: 2.6rem;
+  margin-top: 25px;
+}
+
+/* CUENTA REGRESIVA */
+
+.countdown-section {
+  text-align: center;
+  background: var(--champan);
+}
 
 .countdown {
-  position: relative;
-  min-height: 420px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background:
-    linear-gradient(#24180d88, #24180d99),
-    url("images/NATLI32.jpg") center 45% / cover no-repeat;
-}
-
-.countdown h2,
-.countdown .eyebrow {
-  color: white;
-}
-
-.timer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
-  margin-top: 30px;
+  max-width: 680px;
+  margin: 35px auto 0;
 }
 
-.timer-item {
-  min-width: 75px;
-  padding: 12px;
-  border: 1px solid var(--champan);
-  background: #49332660;
+.time-box {
+  background: rgba(255, 253, 249, .7);
+  padding: 20px 5px;
+  border: 1px solid #fff9;
 }
 
-.timer-item strong {
+.time-box strong {
   display: block;
-  font-size: 2rem;
-  font-weight: normal;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 500;
 }
 
-.timer-item span {
-  font-size: .7rem;
-  letter-spacing: 1px;
+.time-box span {
+  font-size: .62rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-/* INVITACIÓN Y FAMILIA */
-
-.invitation {
-  max-width: 850px;
-  margin: auto;
-}
+/* FAMILIA */
 
 .family {
-  background: #EFE4D4;
+  background: var(--marfil);
+  text-align: center;
 }
 
 .family-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 35px;
-  max-width: 850px;
-  margin: 35px auto 0;
+  gap: 20px;
+  margin-top: 35px;
 }
 
 .family-card {
-  padding: 25px 18px;
+  padding: 28px 18px;
   border: 1px solid var(--arena);
+  background: rgba(255, 253, 249, .55);
 }
 
 .family-card h3 {
+  font-size: 1.9rem;
   margin-bottom: 15px;
 }
 
 .family-card p {
-  margin: 7px 0;
+  font-size: .86rem;
+  line-height: 1.9;
 }
 
-/* UBICACIONES */
-
-.location-card {
-  max-width: 680px;
-  margin: 30px auto 0;
-  padding: 30px 20px;
-  border: 1px solid var(--arena);
+.family-card .script {
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
-.location-card h3 {
-  margin: 8px 0;
+/* EVENTOS */
+
+.events {
+  background: var(--blanco);
 }
 
-.location-address {
-  font-size: .95rem;
-}
-
-.location-time {
-  color: var(--cuero);
-  font-size: 1.2rem;
-  font-style: italic;
-}
-
-/* RECEPCIÓN */
-
-.reception-photo {
-  width: min(750px, 100%);
-  height: min(65vh, 550px);
-  object-fit: cover;
-  object-position: center 35%;
-  margin: 30px auto;
-}
-
-/* VESTIMENTA */
-
-.dress-code {
-  background: #EFE4D4;
-}
-
-.dress-photo {
-  width: min(420px, 100%);
-  height: 460px;
-  object-fit: cover;
-  object-position: center 35%;
-  margin: 30px auto;
-}
-
-.color-note {
-  max-width: 600px;
-  margin: 25px auto;
-  padding: 20px;
-  border: 1px solid var(--arena);
-}
-
-/* GALERÍA */
-
-.gallery {
-  background: var(--marfil);
-}
-
-.carousel {
-  max-width: 850px;
-  margin: 35px auto 15px;
-  position: relative;
-}
-
-.carousel-frame {
-  overflow: hidden;
-  background: var(--champan);
-}
-
-.carousel-frame img {
-  width: 100%;
-  height: min(70vh, 650px);
-  object-fit: contain;
-  background: var(--champan);
-}
-
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 25px;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
-.carousel-controls button {
-  width: 45px;
-  height: 45px;
-  border: 1px solid var(--cuero);
-  color: var(--cafe);
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.3rem;
+.event-card {
+  background: var(--marfil);
+  border: 1px solid var(--arena);
+  text-align: center;
+  overflow: hidden;
 }
 
-#galleryCounter {
-  font-size: .9rem;
+.event-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.event-info {
+  padding: 28px 22px 32px;
+}
+
+.event-info h3 {
+  font-size: 2.1rem;
+  margin: 10px 0;
+}
+
+.event-info p {
+  font-size: .83rem;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.event-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: var(--cuero);
+  margin-bottom: 10px;
 }
 
 /* ITINERARIO */
 
-.itinerary {
-  background: #EFE4D4;
+.timeline-section {
+  background: var(--marfil);
 }
 
 .timeline {
-  max-width: 560px;
+  max-width: 650px;
   margin: 35px auto 0;
-  text-align: left;
-  border-left: 1px solid var(--cuero);
-  padding-left: 25px;
 }
 
 .timeline-item {
-  position: relative;
-  padding: 0 0 26px 10px;
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--arena);
+  align-items: center;
 }
 
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  background: var(--cuero);
-  border-radius: 50%;
-  left: -31px;
-  top: 9px;
+.timeline-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--cuero);
 }
 
 .timeline-item h3 {
-  font-size: 1.1rem;
+  font-size: 1.45rem;
+  margin-bottom: 4px;
 }
 
 .timeline-item p {
-  font-size: .95rem;
+  font-size: .78rem;
+  line-height: 1.7;
 }
 
-/* CONFIRMACIÓN Y PIE */
+/* VESTIMENTA */
 
-.rsvp {
+.attire {
   background: var(--cafe);
-  color: var(--marfil);
+  color: var(--blanco);
+  text-align: center;
 }
 
-.rsvp .eyebrow,
-.rsvp .script {
+.attire .eyebrow {
   color: var(--champan);
 }
 
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  background: var(--marfil);
-  font-size: .85rem;
-}
-
-/* BOTÓN DE MÚSICA */
-
-.music-button {
-  position: fixed;
-  z-index: 50;
-  bottom: 18px;
-  right: 18px;
+.attire-card {
+  max-width: 700px;
+  margin: 30px auto 0;
   border: 1px solid var(--champan);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  background: var(--cafe);
-  color: var(--marfil);
-  cursor: pointer;
-  box-shadow: 0 4px 14px #0002;
+  padding: clamp(28px, 7vw, 55px);
 }
 
-@media (max-width: 600px) {
+.attire-card h3 {
+  font-size: 2.4rem;
+  margin: 12px 0;
+}
+
+.attire-card p {
+  font-size: .86rem;
+  line-height: 2;
+}
+
+.color-swatches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ffffff70;
+}
+
+.attire-note {
+  color: var(--champan);
+  font-size: .75rem !important;
+}
+
+/* GALERIA */
+
+.gallery-section {
+  background: var(--blanco);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform .25s ease;
+  background: var(--champan);
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+.gallery img.broken {
+  display: none;
+}
+
+/* CONFIRMACION */
+
+.rsvp {
+  background: var(--champan);
+  text-align: center;
+}
+
+.rsvp-card {
+  max-width: 700px;
+  margin: auto;
+  background: var(--blanco);
+  padding: clamp(30px, 7vw, 60px);
+  border: 1px solid white;
+}
+
+.rsvp-card p {
+  font-size: .88rem;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+/* CIERRE */
+
+.closing {
+  background: var(--cafe);
+  color: var(--blanco);
+  text-align: center;
+  padding: 90px 22px;
+}
+
+.closing .eyebrow {
+  color: var(--champan);
+}
+
+.closing .script {
+  color: var(--champan);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  margin: 22px 0;
+}
+
+.closing p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: .86rem;
+  line-height: 2;
+}
+
+footer {
+  background: var(--cafe);
+  color: var(--champan);
+  text-align: center;
+  padding: 18px;
+  font-size: .65rem;
+  letter-spacing: .1em;
+}
+
+/* VISOR DE FOTOGRAFIAS */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(25, 17, 12, .94);
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox button {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  color: white;
+  border: 0;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
   section {
-    padding: 60px 18px;
+    padding: 65px 18px;
   }
 
-  .family-grid {
+  .hero::after {
+    inset: 10px;
+  }
+
+  .countdown {
+    gap: 7px;
+  }
+
+  .time-box {
+    padding: 15px 3px;
+  }
+
+  .time-box span {
+    font-size: .53rem;
+    letter-spacing: .04em;
+  }
+
+  .family-grid,
+  .event-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
-  .hero-content {
-    padding: 30px 15px;
+  .event-card img {
+    height: 330px;
   }
 
-  .hero-date {
-    letter-spacing: 2px;
-  }
-
-  .dress-photo {
-    height: 400px;
-  }
-
-  .carousel-frame img {
-    height: 60vh;
-  }
-
-  .timer {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
-  .timer-item {
-    min-width: 68px;
-    padding: 9px 7px;
+  .timeline-item {
+    grid-template-columns: 95px 1fr;
+    gap: 12px;
   }
 
-  .timer-item strong {
-    font-size: 1.6rem;
+  .timeline-time {
+    font-size: 1.1rem;
   }
 }
 
@@ -483,7 +650,8 @@ footer {
   }
 
   *, *::before, *::after {
-    transition-duration: .01ms !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 </style>
@@ -491,495 +659,444 @@ footer {
 
 <body>
 
-<!-- MÚSICA: music.mp3 debe estar junto a index.html -->
-<audio id="backgroundMusic" preload="auto" loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Tu navegador no puede reproducir este archivo de audio.
-</audio>
+<!-- PORTADA: SIN SOBRE NI PANTALLA DE ENTRADA -->
 
-<button class="music-button" id="musicToggle"
-  type="button" aria-label="Reproducir música" aria-pressed="false">♫</button>
-
-<!-- PORTADA -->
-<header class="hero">
+<header class="hero" id="inicio">
   <div class="hero-content">
-    <p class="eyebrow">Con la bendición de Dios y de mi familia</p>
-    <p>Te invito a celebrar conmigo</p>
-    <h1>Natali Gissel</h1>
-    <p class="hero-subtitle">Mis XV años</p>
-    <p class="hero-date">Sábado · 7 · Noviembre · 2026</p>
-    <p class="script">Una noche para recordar</p>
+    <p class="eyebrow">Una noche para recordar</p>
+    <div class="hero-line"></div>
+    <h1>Mis XV años</h1>
+    <p class="script name">Natali Gissel</p>
+    <p class="eyebrow">Reyes Segura</p>
+    <div class="hero-line"></div>
+    <p class="hero-date">
+      SÁBADO<br>
+      <strong>7 DE NOVIEMBRE DE 2026</strong>
+    </p>
+    <a class="scroll-cue" href="#mensaje">
+      DESLIZA PARA DESCUBRIR
+      <span>↓</span>
+    </a>
   </div>
 </header>
 
-<!-- FRASE OFICIAL -->
-<section class="quote-section">
-  <p class="eyebrow">Una nueva etapa comienza</p>
-  <h2>Quince primaveras</h2>
-  <div class="ornament">✧ ❦ ✧</div>
-  <p class="quote-text script">
-    “Quince primaveras han florecido en mi camino, y hoy doy gracias
-    a Dios por regalarme esta nueva etapa de la vida. Con el corazón
-    lleno de alegría y bendiciones, abro mis brazos para recibir a
-    quienes amo en este día tan especial.”
-  </p>
+<!-- BOTON DE MUSICA: EL NAVEGANTE DECIDE CUANDO REPRODUCIR -->
+
+<audio id="musica" src="music.mp3" preload="metadata" loop></audio>
+<button class="music-control" id="musicButton" type="button">
+  ♫ Reproducir música
+</button>
+
+<!-- MENSAJE -->
+
+<section class="message" id="mensaje">
+  <div class="container">
+    <div class="message-card">
+      <p class="eyebrow">Con la bendición de Dios</p>
+      <div class="ornament">✦ ❧ ✦</div>
+      <p>
+        Quince primaveras han florecido en mi camino, y hoy doy gracias
+        a Dios por regalarme esta nueva etapa de la vida. Con el corazón
+        lleno de alegría y bendiciones, abro mis brazos para recibir
+        a quienes amo en este día tan especial.
+      </p>
+      <p class="script">¡Celebra conmigo!</p>
+      <div class="ornament">✦ ❧ ✦</div>
+    </div>
+  </div>
 </section>
 
 <!-- CUENTA REGRESIVA -->
-<section class="countdown">
-  <div>
+
+<section class="countdown-section" id="cuenta">
+  <div class="container">
     <p class="eyebrow">Cada vez falta menos</p>
-    <h2>Nos vemos pronto</h2>
+    <h2 class="section-title">La cuenta regresiva</h2>
+    <p class="section-intro">
+      Una noche mágica, llena de música, familia y recuerdos
+      que vivirán por siempre en mi corazón.
+    </p>
 
-    <div class="timer">
-      <div class="timer-item">
-        <strong id="days">0</strong><span>Días</span>
+    <div class="countdown">
+      <div class="time-box">
+        <strong id="days">00</strong>
+        <span>Días</span>
       </div>
-      <div class="timer-item">
-        <strong id="hours">0</strong><span>Horas</span>
+      <div class="time-box">
+        <strong id="hours">00</strong>
+        <span>Horas</span>
       </div>
-      <div class="timer-item">
-        <strong id="minutes">0</strong><span>Minutos</span>
+      <div class="time-box">
+        <strong id="minutes">00</strong>
+        <span>Minutos</span>
       </div>
-      <div class="timer-item">
-        <strong id="seconds">0</strong><span>Segundos</span>
+      <div class="time-box">
+        <strong id="seconds">00</strong>
+        <span>Segundos</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INVITACIÓN Y FAMILIA -->
-<section class="family">
-  <div class="invitation">
-    <p class="eyebrow">Una invitación hecha con amor</p>
-    <h2>Con la bendición de Dios</h2>
+<!-- FAMILIA -->
 
-    <p>
-      Con la bendición de Dios y llenos de gratitud por la vida,
-      tenemos el inmenso honor de invitarles a celebrar los
+<section class="family" id="familia">
+  <div class="container">
+    <p class="eyebrow">Con amor y gratitud</p>
+    <h2 class="section-title">Mi familia</h2>
+    <p class="section-intro">
+      Este día tan especial no estaría completo sin las personas
+      que han acompañado mis pasos y llenado mi vida de amor.
     </p>
 
-    <h2 class="script">XV años</h2>
-    <p>de nuestra amada hija</p>
-    <h2>Natali Gissel Reyes Segura</h2>
+    <div class="family-grid">
+      <article class="family-card">
+        <p class="script">Mi mamá</p>
+        <h3>Aurora Segura Jiménez</h3>
+        <p>Gracias por tu amor, tu apoyo y por ser parte fundamental de mi vida.</p>
+      </article>
 
-    <p>
-      Acompáñennos a compartir este sueño hecho realidad, donde la fe,
-      el amor y la alegría se unen para dar la bienvenida a una nueva
-      etapa de su vida.
-    </p>
-  </div>
+      <article class="family-card">
+        <p class="script">Mis abuelos</p>
+        <h3>Con todo mi cariño</h3>
+        <p>
+          Aurora Jiménez Chávez<br>
+          Jesús Segura Chávez<br>
+          Isaías Reyes Uribe
+        </p>
+      </article>
 
-  <div class="ornament">✧ ❦ ✧</div>
-
-  <div class="family-grid">
-    <div class="family-card">
-      <h3>Su madre</h3>
-      <p class="script">Con todo mi amor</p>
-      <p>Aurora Segura Jiménez</p>
-    </div>
-
-    <div class="family-card">
-      <h3>En compañía de sus abuelos</h3>
-      <p>Aurora Jiménez Chávez</p>
-      <p>Jesús Segura Chávez</p>
-      <p>Isaías Reyes Uribe</p>
-    </div>
-
-    <div class="family-card">
-      <h3>Nuestros queridos padrinos</h3>
-      <p>Said Segura Jiménez</p>
-      <p class="script">y</p>
-      <p>Ariadna Hernandez Pioquinto</p>
+      <article class="family-card" style="grid-column: 1 / -1;">
+        <p class="script">Mis padrinos</p>
+        <h3>Con amor y agradecimiento</h3>
+        <p>
+          Said Segura Jiménez<br>
+          y<br>
+          Ariadna Hernandez Pioquinto
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CEREMONIA RELIGIOSA -->
-<section>
-  <p class="eyebrow">Primero, damos gracias</p>
-  <h2>Santa misa</h2>
-  <p class="location-time">7:00 p. m.</p>
-  <div class="ornament">✧</div>
+<!-- UBICACIONES -->
 
-  <div class="location-card">
-    <h3>Parroquia Nuestra Señora del Rosario</h3>
-    <p class="location-address">
-      C. Río Rhin s/n, Col. Las Vegas,<br>
-      C. P. 94297, Boca del Río, Veracruz.
-    </p>
-    <p>Sábado 7 de noviembre de 2026</p>
-
-    <a class="btn" target="_blank" rel="noopener noreferrer"
-      href="https://maps.app.goo.gl/SDDv9FsMZULzLXfJ6?g_st=aw">
-      Ver ubicación de la iglesia
-    </a>
-  </div>
-</section>
-
-<!-- RECEPCIÓN -->
-<section>
-  <p class="eyebrow">La celebración continúa</p>
-  <h2>La recepción</h2>
-
-  <img class="reception-photo"
-    src="images/NATLI38.jpg"
-    alt="Fotografía de Natali Gissel"
-    loading="lazy">
-
-  <div class="location-card">
-    <p class="script">Celebremos juntos</p>
-    <h3>Finca El Enkanto</h3>
-    <p class="location-time">8:30 p. m.</p>
-
-    <p class="location-address">
-      Camino Real s/n, Villa de Guadalupe,<br>
-      C. P. 94273, El Tejar, Medellín de Bravo, Veracruz.
+<section class="events" id="eventos">
+  <div class="container">
+    <p class="eyebrow center">Dos momentos especiales</p>
+    <h2 class="section-title">Acompáñame</h2>
+    <p class="section-intro">
+      Será un honor compartir contigo la bendición de esta nueva
+      etapa y celebrar juntos una noche inolvidable.
     </p>
 
-    <a class="btn" target="_blank" rel="noopener noreferrer"
-      href="https://maps.app.goo.gl/ZiFp9PCKzq1rMDfd9?g_st=aw">
-      Cómo llegar a la recepción
-    </a>
-  </div>
-</section>
+    <div class="event-grid">
+      <article class="event-card">
+        <img src="images/NATLI38.jpg"
+             alt="Fotografía de Natali Gissel"
+             loading="lazy">
+        <div class="event-info">
+          <p class="eyebrow">Primer encuentro</p>
+          <h3>Santa misa</h3>
+          <p class="event-time">7:00 p. m.</p>
+          <p>
+            Parroquia Nuestra Señora del Rosario<br>
+            C. Río Rhin S/N, Col. Las Vegas<br>
+            C. P. 94297, Boca del Río, Veracruz
+          </p>
+          <a class="btn"
+             href="https://maps.app.goo.gl/SDDv9FsMZULzLXfJ6?g_st=aw"
+             target="_blank" rel="noopener">
+            Cómo llegar
+          </a>
+        </div>
+      </article>
 
-<!-- CÓDIGO DE VESTIMENTA -->
-<section class="dress-code">
-  <p class="eyebrow">Indicaciones especiales</p>
-  <h2>Elegante tipo jardín</h2>
-
-  <img class="dress-photo"
-    src="images/NATLI23.jpg"
-    alt="Fotografía de Natali para el código de vestimenta"
-    loading="lazy">
-
-  <p>
-    Nos encantará que nos acompañes con un estilo elegante tipo jardín,
-    con sombreros y detalles de estilo mexicano.
-  </p>
-  <p class="script">¡Nuestra temática será Cielito Lindo!</p>
-
-  <div class="color-note">
-    <p class="script">Un detalle importante</p>
-    <p>
-      El color champán es exclusivo de la quinceañera.
-      Agradecemos tu comprensión para que Natali brille como la
-      protagonista de esta noche tan especial.
-    </p>
-  </div>
-
-  <p class="eyebrow">Colores sugeridos</p>
-  <p>Marfil · Arena · Café · Tonos tierra</p>
-</section>
-
-<!-- GALERÍA -->
-<section class="gallery">
-  <p class="eyebrow">Recuerdos de Natali</p>
-  <h2>Mi galería</h2>
-  <p class="script">Un poquito de mí para compartir contigo.</p>
-
-  <div class="carousel">
-    <div class="carousel-frame">
-      <img id="galleryImage"
-        src="images/NATLI1.jpg"
-        alt="Fotografía de Natali Gissel"
-        loading="lazy">
-    </div>
-
-    <div class="carousel-controls">
-      <button id="prevPhoto" type="button"
-        aria-label="Fotografía anterior">‹</button>
-      <span id="galleryCounter" aria-live="polite">1 / 37</span>
-      <button id="nextPhoto" type="button"
-        aria-label="Fotografía siguiente">›</button>
+      <article class="event-card">
+        <img src="images/NATLI23.jpg"
+             alt="Retrato de Natali Gissel"
+             loading="lazy">
+        <div class="event-info">
+          <p class="eyebrow">La celebración</p>
+          <h3>Recepción</h3>
+          <p class="event-time">8:30 p. m.</p>
+          <p>
+            Finca El Enkanto<br>
+            Camino Real s/n, Villa de Guadalupe<br>
+            C. P. 94273, El Tejar, Medellín de Bravo, Veracruz
+          </p>
+          <a class="btn"
+             href="https://maps.app.goo.gl/ZiFp9PCKzq1rMDfd9?g_st=aw"
+             target="_blank" rel="noopener">
+            Cómo llegar
+          </a>
+        </div>
+      </article>
     </div>
   </div>
-</section>
-
-<!-- FRASE DIVISORIA -->
-<section class="quote-section">
-  <p class="eyebrow">Una noche para celebrar</p>
-  <h2>Que comience la magia</h2>
-  <div class="ornament">✧ ❦ ✧</div>
-  <p class="quote-text script">
-    “Gracias Dios por cada paso, cada sonrisa y cada sueño que hoy
-    celebramos. Gracias familia y padrinos, por ser mi raíz y mi
-    inspiración. ¡Los espero con todo mi corazón!”
-  </p>
-  <p>— Natali Gissel</p>
 </section>
 
 <!-- ITINERARIO -->
-<section class="itinerary">
-  <p class="eyebrow">Programa del evento</p>
-  <h2>Itinerario</h2>
-  <p class="script">Una noche llena de momentos especiales</p>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>7:00 p. m. · Santa misa</h3>
-      <p>Damos gracias por esta nueva etapa en la vida de Natali.</p>
-    </div>
+<section class="timeline-section" id="itinerario">
+  <div class="container">
+    <p class="eyebrow center">Una noche llena de momentos</p>
+    <h2 class="section-title">Itinerario</h2>
+    <p class="section-intro">
+      Estos son algunos de los momentos que compartiremos.
+    </p>
 
-    <div class="timeline-item">
-      <h3>8:30 p. m. · Recepción</h3>
-      <p>Bienvenida a nuestros invitados en Finca El Enkanto.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>9:00 p. m. · El vals</h3>
-      <p>Un momento inolvidable para nuestra quinceañera.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>9:15 p. m. · Palabras de bienvenida</h3>
-      <p>Compartimos la alegría de esta ocasión tan especial.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>9:30 p. m. · Brindis</h3>
-      <p>Levantamos nuestras copas por Natali y su futuro.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>9:45 p. m. · Cena</h3>
-      <p>Un momento para disfrutar y compartir en familia.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>11:00 p. m. · Música y baile</h3>
-      <p>¡Que siga la fiesta y comience la diversión!</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>3:30 a. m. · Corte del pastel</h3>
-      <p>Un dulce recuerdo para compartir juntos.</p>
-      <p>Domingo 8 de noviembre.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>3:45 a. m. · Recuerditos y despedida</h3>
-      <p>Gracias por formar parte de esta noche tan especial.</p>
-      <p>Domingo 8 de noviembre.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>4:00 a. m. · Fin del evento</h3>
-      <p>Nos despedimos con el corazón lleno de alegría.</p>
-      <p>Domingo 8 de noviembre.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">7:00 p. m.</div>
+        <div><h3>Santa misa</h3><p>Un momento de fe y agradecimiento.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">8:30 p. m.</div>
+        <div><h3>Recepción</h3><p>Bienvenidos a esta noche especial.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">9:00 p. m.</div>
+        <div><h3>Vals</h3><p>Un baile para guardar en el corazón.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">9:15 p. m.</div>
+        <div><h3>Palabras de bienvenida</h3><p>Compartiremos la alegría de este día.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">9:30 p. m.</div>
+        <div><h3>Brindis</h3><p>Por los sueños, la familia y el futuro.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">9:45 p. m.</div>
+        <div><h3>Cena</h3><p>Un momento para disfrutar juntos.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:00 p. m.</div>
+        <div><h3>Música y baile</h3><p>¡A celebrar y disfrutar la noche!</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">3:30 a. m.</div>
+        <div><h3>Corte de pastel</h3><p>Un dulce momento para compartir.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">3:45 a. m.</div>
+        <div><h3>Recuerditos y despedida</h3><p>Gracias por formar parte de este recuerdo.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">4:00 a. m.</div>
+        <div><h3>Fin del evento</h3><p>Hasta pronto, con mucho cariño.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONFIRMACIÓN POR WHATSAPP -->
-<section class="rsvp">
-  <p class="eyebrow">Tu presencia es importante</p>
-  <h2>¿Me acompañas?</h2>
-  <p>
-    Confirma tu asistencia y celebremos juntos esta noche
-    tan especial.
-  </p>
+<!-- VESTIMENTA -->
 
-  <a class="btn btn-outline"
-    id="whatsappButton"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer">
-    Confirmar por WhatsApp
-  </a>
+<section class="attire" id="vestimenta">
+  <div class="container">
+    <p class="eyebrow">Código de vestimenta</p>
+    <h2 class="section-title">Elegancia de jardín</h2>
 
-  <p id="whatsappHelp" style="font-size:.8rem;">
-    La confirmación estará disponible al configurar el número de WhatsApp.
-  </p>
+    <div class="attire-card">
+      <p class="script" style="font-size: 2.8rem;">Cielito Lindo</p>
+      <h3>Elegante con esencia mexicana</h3>
+      <p>
+        Te invitamos a vestir elegante, con un toque de jardín
+        y detalles inspirados en nuestras tradiciones mexicanas.
+        Puedes incorporar accesorios, sombreros o detalles vaqueros
+        con un estilo refinado.
+      </p>
+
+      <div class="color-swatches" aria-label="Paleta de colores">
+        <span class="swatch" style="background:#F8F2E8"></span>
+        <span class="swatch" style="background:#E8D5B5"></span>
+        <span class="swatch" style="background:#D6C2A5"></span>
+        <span class="swatch" style="background:#9B8570"></span>
+        <span class="swatch" style="background:#74543B"></span>
+      </div>
+
+      <p class="attire-note">
+        El color champán queda reservado para la quinceañera.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+
+<section class="gallery-section" id="galeria">
+  <div class="container">
+    <p class="eyebrow center">Pequeños instantes, grandes recuerdos</p>
+    <h2 class="section-title">Mi galería</h2>
+    <p class="section-intro">
+      Un poquito de mí, de mis sueños y de esta historia
+      que apenas comienza.
+    </p>
+
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- CONFIRMACION -->
+
+<section class="rsvp" id="confirmacion">
+  <div class="container">
+    <div class="rsvp-card">
+      <p class="eyebrow">Tu presencia es mi regalo</p>
+      <h2 class="section-title">¿Me acompañas?</h2>
+      <p>
+        Me hará muy feliz compartir contigo esta fecha tan importante.
+        Confirma tu asistencia para celebrar juntos mis XV años.
+      </p>
+
+      <!-- Reemplaza el numero por el WhatsApp real de confirmaciones -->
+      <a class="btn"
+         href="https://wa.me/5210000000000?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Natali%20Gissel."
+         target="_blank" rel="noopener">
+        Confirmar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DESPEDIDA -->
+
+<section class="closing" id="despedida">
+  <div class="container">
+    <p class="eyebrow">Con todo mi corazón</p>
+    <p class="script">¡Te espero!</p>
+
+    <p>
+      Gracias Dios por cada paso, cada sonrisa y cada sueño que hoy celebramos.
+      Gracias familia y padrinos, por ser mi raíz y mi inspiración.
+      ¡Los espero con todo mi corazón!
+    </p>
+
+    <div class="ornament" style="color: var(--champan);">✦ ❧ ✦</div>
+    <p class="script" style="font-size: 2.8rem;">Natali Gissel</p>
+    <p>7 de noviembre de 2026</p>
+    <a class="btn" href="#inicio"
+       style="color:white;border-color:var(--champan);margin-top:28px;">
+      Volver al inicio ↑
+    </a>
+  </div>
 </section>
 
 <footer>
-  <p class="script">Con todo mi amor, Natali Gissel</p>
-  <p>Mis XV años · 7 de noviembre de 2026</p>
-  <p>Una noche para guardar en el corazón.</p>
+  CON AMOR · MIS XV AÑOS · NATALI GISSEL REYES SEGURA
 </footer>
 
+<!-- VISOR DE FOTOGRAFIAS -->
+
+<div class="lightbox" id="lightbox" role="dialog"
+     aria-modal="true" aria-label="Fotografía ampliada">
+  <button id="closeLightbox" aria-label="Cerrar fotografía">×</button>
+  <img id="lightboxImage" src="" alt="Fotografía ampliada de Natali">
+</div>
+
 <script>
-/* =========================================
-   MÚSICA
-   El audio se controla con el botón flotante.
-   Archivo music.mp3 junto a index.html.
-========================================= */
-
-const MUSIC_START_SECONDS = 13;
-const music = document.getElementById("backgroundMusic");
-const musicToggle = document.getElementById("musicToggle");
-
-let musicStartedOnce = false;
-
-function updateMusicButton() {
-  const playing = !music.paused;
-
-  musicToggle.textContent = playing ? "♫" : "♪";
-  musicToggle.setAttribute(
-    "aria-label",
-    playing ? "Pausar música" : "Reproducir música"
-  );
-  musicToggle.setAttribute("aria-pressed", String(playing));
-}
-
-async function startMusic() {
-  try {
-    if (!musicStartedOnce) {
-      music.currentTime = MUSIC_START_SECONDS;
-    }
-
-    await music.play();
-    musicStartedOnce = true;
-    updateMusicButton();
-  } catch (error) {
-    updateMusicButton();
-    console.warn(
-      "No se pudo reproducir la música. Comprueba que music.mp3 esté junto a index.html.",
-      error
-    );
-  }
-}
-
-musicToggle.addEventListener("click", async () => {
-  if (music.paused) {
-    await startMusic();
-  } else {
-    music.pause();
-    updateMusicButton();
-  }
-});
-
-music.addEventListener("play", updateMusicButton);
-music.addEventListener("pause", updateMusicButton);
-
-window.addEventListener("pagehide", () => {
-  music.pause();
-});
-
-/* =========================================
-   CUENTA REGRESIVA
-========================================= */
+/* CUENTA REGRESIVA */
 
 const eventDate = new Date("2026-11-07T19:00:00-06:00").getTime();
 
 function updateCountdown() {
-  const difference = eventDate - Date.now();
-
-  const days = document.getElementById("days");
-  const hours = document.getElementById("hours");
-  const minutes = document.getElementById("minutes");
-  const seconds = document.getElementById("seconds");
+  const now = Date.now();
+  const difference = eventDate - now;
 
   if (difference <= 0) {
-    days.textContent = "0";
-    hours.textContent = "0";
-    minutes.textContent = "0";
-    seconds.textContent = "0";
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
     return;
   }
 
-  days.textContent = Math.floor(difference / 86400000);
-  hours.textContent = Math.floor((difference % 86400000) / 3600000);
-  minutes.textContent = Math.floor((difference % 3600000) / 60000);
-  seconds.textContent = Math.floor((difference % 60000) / 1000);
+  document.getElementById("days").textContent =
+    String(Math.floor(difference / 86400000)).padStart(2, "0");
+
+  document.getElementById("hours").textContent =
+    String(Math.floor((difference % 86400000) / 3600000)).padStart(2, "0");
+
+  document.getElementById("minutes").textContent =
+    String(Math.floor((difference % 3600000) / 60000)).padStart(2, "0");
+
+  document.getElementById("seconds").textContent =
+    String(Math.floor((difference % 60000) / 1000)).padStart(2, "0");
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* =========================================
-   GALERÍA
-   NATLI1 a NATLI40, excepto 23, 32 y 38.
-========================================= */
+/* MUSICA: NO BLOQUEA LA PAGINA */
 
+const music = document.getElementById("musica");
+const musicButton = document.getElementById("musicButton");
+
+musicButton.addEventListener("click", async () => {
+  try {
+    if (music.paused) {
+      if (music.currentTime === 0) {
+        music.currentTime = 13;
+      }
+
+      await music.play();
+      musicButton.textContent = "♫ Pausar música";
+    } else {
+      music.pause();
+      musicButton.textContent = "♫ Reproducir música";
+    }
+  } catch (error) {
+    musicButton.textContent = "No se pudo reproducir";
+  }
+});
+
+/* GALERIA: NATLI1 A NATLI40, EXCEPTO LAS FOTOS DE PORTADA Y EVENTOS */
+
+const gallery = document.getElementById("gallery");
 const excludedPhotos = [23, 32, 38];
 
-const galleryPhotos = Array.from(
-  { length: 40 },
-  (_, index) => index + 1
-)
-  .filter(number => !excludedPhotos.includes(number))
-  .map(number => `images/NATLI${number}.jpg`);
+for (let i = 1; i <= 40; i++) {
+  if (excludedPhotos.includes(i)) continue;
 
-let currentPhoto = 0;
+  const img = document.createElement("img");
+  img.src = `images/NATLI${i}.jpg`;
+  img.alt = `Fotografía ${i} de Natali Gissel`;
+  img.loading = "lazy";
 
-const galleryImage = document.getElementById("galleryImage");
-const galleryCounter = document.getElementById("galleryCounter");
-
-function showPhoto(index) {
-  currentPhoto =
-    (index + galleryPhotos.length) % galleryPhotos.length;
-
-  galleryImage.alt =
-    `Fotografía ${currentPhoto + 1} de ${galleryPhotos.length} de Natali Gissel`;
-
-  galleryImage.src = galleryPhotos[currentPhoto];
-  galleryCounter.textContent =
-    `${currentPhoto + 1} / ${galleryPhotos.length}`;
-}
-
-document.getElementById("prevPhoto").addEventListener("click", () => {
-  showPhoto(currentPhoto - 1);
-});
-
-document.getElementById("nextPhoto").addEventListener("click", () => {
-  showPhoto(currentPhoto + 1);
-});
-
-galleryImage.addEventListener("error", () => {
-  galleryImage.alt =
-    "No se encontró esta fotografía. Revisa su nombre y extensión dentro de la carpeta images.";
-});
-
-let touchStartX = 0;
-
-galleryImage.addEventListener("touchstart", event => {
-  touchStartX = event.changedTouches[0].screenX;
-}, { passive: true });
-
-galleryImage.addEventListener("touchend", event => {
-  const touchEndX = event.changedTouches[0].screenX;
-  const difference = touchEndX - touchStartX;
-
-  if (Math.abs(difference) > 45) {
-    showPhoto(currentPhoto + (difference < 0 ? 1 : -1));
-  }
-}, { passive: true });
-
-showPhoto(0);
-
-/* =========================================
-   CONFIRMACIÓN POR WHATSAPP
-
-   Cambia el número de ejemplo por el número
-   real con código de país, sin + ni espacios.
-========================================= */
-
-const whatsappNumber = "5210000000000";
-
-const whatsappMessage =
-  "¡Hola! Confirmo mi asistencia a los XV años de Natali Gissel Reyes Segura, el sábado 7 de noviembre de 2026.";
-
-const whatsappButton = document.getElementById("whatsappButton");
-const whatsappHelp = document.getElementById("whatsappHelp");
-
-if (/^\d{10,15}$/.test(whatsappNumber) &&
-    whatsappNumber !== "5210000000000") {
-  whatsappButton.href =
-    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-  whatsappHelp.hidden = true;
-} else {
-  whatsappButton.addEventListener("click", event => {
-    event.preventDefault();
-    alert(
-      "Para activar las confirmaciones, coloca el número de WhatsApp real en la variable whatsappNumber al final del código."
-    );
+  img.addEventListener("error", () => {
+    img.classList.add("broken");
   });
+
+  img.addEventListener("click", () => {
+    document.getElementById("lightboxImage").src = img.src;
+    document.getElementById("lightbox").classList.add("active");
+  });
+
+  gallery.appendChild(img);
 }
+
+/* CERRAR VISOR */
+
+const lightbox = document.getElementById("lightbox");
+
+document.getElementById("closeLightbox").addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    lightbox.classList.remove("active");
+  }
+});
 </script>
 
 </body>
 </html>
+```
